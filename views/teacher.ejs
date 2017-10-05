@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Subject</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div id="menu">
+        <a href="subjects">Subject</a>
+        <a href="teachers">Teacher</a>
+        <a href="students">Student</a>
+    </div>
+    <div id="main-table">
+        <h2>
+            Teacher Data
+        </h2>
+        <table style="width:100%">
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+            </tr>
+            <% dataTeacher.forEach(function(row){%>
+                <tr>
+                    <td>
+                        <%=row.id %>
+                    </td>
+                    <td>
+                        <%=row.first_name %>
+                    </td>
+                    <td>
+                        <%=row.last_name %>
+                    </td>
+                    <td>
+                        <%=row.email %>
+                    </td>
+
+                </tr>
+                <%})%>
+        </table>
+    </div>
+
+
+
+</body>
+
+</html>
