@@ -3,9 +3,9 @@ const router = express.Router();
 const Model = require('../models')
 
 
-function validasiEmail(message) {
+// function validasiEmail(message) {
 
-}
+// }
 
 router.get('/', function (req, res) {
     Model.Student.findAll().then((result) => {
@@ -20,7 +20,7 @@ router.post('/add', function (req, res) {
     Model.Student.create(req.body).then((result) => {
         res.redirect('../students')
     }).catch((reason) => {
-        validasiEmail(reason)
+        console.log(reason)
     })
 
 })
