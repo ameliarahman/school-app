@@ -18,13 +18,14 @@ li{
 h2{
     text-align: center;
     color: #1a1a1a;
-    padding-bottom: 20px;
+    padding: 25px 0;
 }
 h4{
     color: red;
 }
 
 #menu{
+    
 margin: 20px 0 10 0;
 text-align: center;
 padding-bottom: 20px;
@@ -41,7 +42,7 @@ th {
 }
 
 a{
-    text-decoration: none;
+  text-decoration: none;
     padding: 10px;
 }
 #main-table table a{
@@ -59,7 +60,63 @@ a:hover{
     text-align: center;
     margin-top:20px
 }
+.dropmenu {
+    background: #616161;
+    height: 35px;
+    list-style-type: none;
+}
+.dropmenu li {
+   
+    float: left;
+    height: 35px;
+}
+.dropmenu li a {
+    color: #fff;
+    display: block;
+    font: 14px verdana, sans-serif;
+    font-weight: bold;
+    padding: 9px 10px;
+    text-decoration: none;
+}
+.dropmenu li:hover { 
+    background: #778899; 
+    position: relative; 
+}
+.dropmenu li:hover a { 
+    text-decoration: none 
+}
 
+.dropmenu li:hover ul {
+    left: -20px;
+    top: 35px;
+  
+}
+.dropmenu li:hover ul li { 
+    height: 30px; 
+}
+.dropmenu li:hover ul li a {
+    background-color: #778899;
+    border: 1px solid transparent;
+    color: #fff;
+    display: block;
+    font-size: 12px;
+    height: 30px;
+    padding: 0px;
+    text-decoration: none;
+    text-indent: 25px;
+    width: 130px;
+}
+.dropmenu li:hover ul li a:hover {
+    background: silver;
+    color: #000;
+    height: 30px;
+}
+.dropmenu ul {
+  
+    list-style-type: none;
+    position: absolute;
+    top: 99px;
+}
 
 
 

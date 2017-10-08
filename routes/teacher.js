@@ -3,13 +3,18 @@ const router = express.Router();
 const Model = require('../models')
 
 router.get('/', function (req, res) {
-  Model.Teacher.findAll({ include: [Model.Subject] }).then((result) => {
-    res.render('teacher', { dataTeacher: result })
+  Model.Teacher.findAll({
+    include: [Model.Subject],
+    order: [
+      ['first_name', 'ASC']
+    ]
+  }).then((result) => {
+    res.render('teacher', { dataTeacher: result, pageTitle: 'Data Teacher' })
   })
 })
 router.get('/add', function (req, res) {
   Model.Subject.findAll().then((result) => {
-    res.render('addTeacher', { dataSubject: result })
+    res.render('addTeacher', { dataSubject: result, pageTitle: 'Add Data Teacher' })
   })
 
 })
@@ -23,7 +28,7 @@ router.get('/edit/:id', function (req, res) {
     Model.Teacher.findById(req.params.id),
     Model.Subject.findAll()
   ]).then((result) => {
-    res.render('editTeacher', { dataTeacher: result[0], dataSubject: result[1] })
+    res.render('editTeacher', { dataTeacher: result[0], dataSubject: result[1], pageTitle: 'Edit Data Teacher' })
   })
 })
 router.post('/edit/:id', function (req, res) {

@@ -1,28 +1,31 @@
 <html>
 
 <head>
-    <title>Add Student</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>
+        <%=pageTitle%>
+    </title>
 </head>
 
 <body>
-    <div id="form-input">
 
-        <form action="/students/add" method="post">
+    <body>
 
-            <br> First Name :
-            <br>
-            <input type="text" name="first_name"> <br> Last Name :
-            <br>
-            <input type="text" name="last_name"><br> Email :
-            <br>
-            <input type="text" name="email"><br>
-            <br>
-            <input type="submit" value="Save">
-        </form>
+        <div id="form-input">
+            <form action="/students/add" method="post">
 
-    </div>
+                <br> First Name :
+                <br>
+                <input type="text" name="first_name"> <br> Last Name :
+                <br>
+                <input type="text" name="last_name"><br> Email :
+                <br>
+                <input type="text" name="email"><br>
+                <br>
+                <input type="submit" value="Save">
+            </form>
 
-</body>
+        </div>
+        <a href="/students">Student</a>
+    </body>
 
 </html>

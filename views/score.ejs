@@ -1,27 +1,28 @@
 <html>
 
 <head>
-    <title>Enrolled Students</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>
+        <%=pageTitle%>
+    </title>
 </head>
 
 <body>
-    <div id="main-table">
-        <h2>
-            Students Score
-        </h2>
-        Student Name :
-        <%=dataStudentSubject.Student.first_name%>
-            <%=dataStudentSubject.Student.last_name%><br> Subject Name :
-                <%=dataStudentSubject.Subject.subject_name%>
-                    <form action="/subjects/<%=dataStudentSubject.SubjectId%>/<%=dataStudentSubject.id %>/givescore" method="post">
+        <div id="main-table">
+            <h2>
+                Students Score
+            </h2>
+            Student Name :
+            <%=dataStudentSubject.Student.first_name%>
+                <%=dataStudentSubject.Student.last_name%><br> Subject Name :
+                    <%=dataStudentSubject.Subject.subject_name%>
+                        <form action="/subjects/<%=dataStudentSubject.SubjectId%>/<%=dataStudentSubject.id %>/givescore" method="post">
 
-                        <br> Score
-                        <br>
-                        <input type="text" name="score"><br>
-                        <br>
-                        <input type="submit" value="Save">
-    </div>
+                            <br> Score
+                            <br>
+                            <input type="text" name="score"><br>
+                            <br>
+                            <input type="submit" value="Save">
+        </div>
 
 </body>
 

@@ -5,11 +5,11 @@ const Model = require('../models')
 
 router.get('/', function (req, res) {
   Model.Subject.findAll({ include: [Model.Teacher] }).then((result) => {
-    res.render('subject', { dataSubject: result })
+    res.render('subject', { dataSubject: result, pageTitle: 'Data Subject' })
   })
 })
 router.get('/add', function (req, res) {
-  res.render('addSubject')
+  res.render('addSubject', { pageTitle: 'Add Data Subject' })
 })
 router.post('/add', function (req, res) {
   Model.Subject.create(req.body).then((result) => {
@@ -19,7 +19,7 @@ router.post('/add', function (req, res) {
 })
 router.get('/edit/:id', function (req, res) {
   Model.Subject.findById(req.params.id).then((result) => {
-    res.render('editSubject', { dataSubject: result })
+    res.render('editSubject', { dataSubject: result, pageTitle: 'Edit Data Subject' })
   })
 })
 
@@ -40,7 +40,7 @@ router.get('/:id/enrolledstudents', function (req, res) {
       SubjectId: req.params.id
     }
   }).then((result) => {
-    res.render('enrolledStudent', { dataStudentSubject: result })
+    res.render('enrolledStudent', { dataStudentSubject: result, pageTitle: 'Enrolled Student' })
   })
 })
 
@@ -48,7 +48,7 @@ router.get('/:SubjectId/:id/givescore', function (req, res) {
   Model.StudentSubject.findById(req.params.id, {
     include: [Model.Student, Model.Subject]
   }).then((result) => {
-    res.render('score', { dataStudentSubject: result })
+    res.render('score', { dataStudentSubject: result, pageTitle: 'Student Score' })
   })
 })
 router.post('/:SubjectId/:id/givescore', function (req, res) {

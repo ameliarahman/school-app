@@ -1,21 +1,23 @@
 <html>
-        
-        <head>
-            <title>Edit Subject</title>
-        </head>
-        
-        <body>
-            <div id="form-input">
-                <form action="/subjects/edit/<%=dataSubject.id %>" method="post">
-                    <br> Subject Name :
-                    <br>
-                    <input type="text" name="subject_name" value="<%=dataSubject.subject_name %>">
-                    <br>
-                    <input type="submit" value="Save">
-                </form>
-        
-            </div>
-        
-        </body>
-        
-        </html>
+
+<head>
+    <title>
+        <%=pageTitle%>
+    </title>
+</head>
+
+<body>
+        <div id="form-input">
+            <form action="/subjects/edit/<%=dataSubject.id %>" method="post">
+                <br> Subject Name :
+                <br>
+                <input type="text" name="subject_name" value="<%=dataSubject.subject_name %>">
+                <br>
+                <input type="submit" value="Save">
+            </form>
+
+        </div>
+
+</body>
+
+</html>
