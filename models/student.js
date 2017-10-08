@@ -1,4 +1,6 @@
 'use strict';
+const fullName = require('../helper/fullname')
+
 module.exports = (sequelize, DataTypes) => {
   var Student = sequelize.define('Student', {
     first_name: DataTypes.STRING,
@@ -17,6 +19,9 @@ module.exports = (sequelize, DataTypes) => {
   Student.associate = model => {
     Student.belongsToMany(model.Subject, { through: 'StudentSubject' });
     Student.hasMany(model.StudentSubject)
+  }
+  Student.prototype.getFullName= function(){
+    return fullName(this.first_name, this.last_name)
   }
   return Student;
 };

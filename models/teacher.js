@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
   Teacher.associate = model => {
     Teacher.belongsTo(model.Subject)
   }
-  Teacher.prototype.teacherName= function(){
+  Teacher.prototype.getFullName= function(){
     return fullName(this.first_name, this.last_name)
   }
   return Teacher;

@@ -10,7 +10,7 @@ function validasiEmail(req, res, errMessage) {
 router.get('/', function (req, res) {
     Model.Student.findAll({
         order: [
-            ['first_name', 'ASC'],
+            ['first_name', 'ASC']
         ]
     }).then((result) => {
         res.render('student', { dataRowStudent: result, pageTitle: "Student" })

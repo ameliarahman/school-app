@@ -36,8 +36,8 @@
                             <ol>
                                 <% row.Teachers.forEach(function(teacher) { %>
                                     <li>
-                                        <%= teacher.first_name%>
-                                            <%= teacher.last_name%>
+                                        <%= teacher.getFullName()%>
+                                           
                                     </li>
                                     <%}) %>
 

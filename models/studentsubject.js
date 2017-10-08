@@ -1,4 +1,7 @@
 'use strict';
+const scoreLetter = require('../helper/scoreLetter')
+
+
 module.exports = (sequelize, DataTypes) => {
   var StudentSubject = sequelize.define('StudentSubject', {
     SubjectId: DataTypes.INTEGER,
@@ -13,6 +16,9 @@ module.exports = (sequelize, DataTypes) => {
   StudentSubject.associate = model => {
     StudentSubject.belongsTo(model.Subject);
     StudentSubject.belongsTo(model.Student);
+  }
+  StudentSubject.prototype.getScoreLetter = function () {
+    return scoreLetter(this.score)
   }
   return StudentSubject;
 };
