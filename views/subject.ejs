@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Subject</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div id="menu">
+        <a href="subjects">Subject</a>
+        <a href="teachers">Teacher</a>
+        <a href="students">Student</a>
+    </div>
+    <div id="main-table">
+        <h2>
+            Subject Data
+        </h2>
+        <table style="width:100%">
+            <tr>
+                <th>ID</th>
+                <th>Subject Name</th>
+                <th>Teacher</th>
+                <th>Student</th>
+                <th colspan="2">Action</th>
+            </tr>
+            <% dataSubject.forEach(function(row){%>
+                <tr>
+                    <td>
+                        <%=row.id %>
+                    </td>
+                    <td>
+                        <%=row.subject_name %>
+                    </td>
+                    <td>
+                        <ol>
+                            <% row.Teachers.forEach(function(teacher) { %>
+                                <li>
+                                    <%= teacher.first_name%>
+                                        <%= teacher.last_name%>
+                                </li>
+                                <%}) %>
+
+                        </ol>
+                    </td>
+
+                    <td>
+                        <a href="/subjects/<%=row.id%>/enrolledstudents">Enrolled Students</a>
+                    </td>
+                    <td>
+                        <a href="/subjects/edit/<%=row.id%>">Edit</a>
+                    </td>
+                    <td>
+                        <a href="/subjects/delete/<%=row.id%>">Delete</a>
+                    </td>
+                </tr>
+                <%})%>
+        </table>
+    </div>
+    <div id="menu-add">
+        <a href="/subjects/add">Add Data Subject</a>
+    </div>
+
+
+
+</body>
+
+</html>

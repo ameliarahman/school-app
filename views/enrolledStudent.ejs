@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <title>Enrolled Students</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div id="main-table">
+        <h2>
+            Students Data
+        </h2>
+        <table style="width:100%">
+            <tr>
+                <th>No</th>
+                <th>ID</th>
+                <th>Students Name</th>
+                <th>Score</th>
+                <th>Desc</th>
+            </tr>
+            <% dataStudentSubject.forEach(function(row, index){%>
+                <tr>
+                    <td>
+                        <%=index+1%>
+                            <td/>
+                            <td>
+                                <%=row.id %>
+                            </td>
+                            <td>
+                                <%=row.Student.first_name %>
+                                    <%=row.Student.last_name %>
+                            </td>
+                            <%if(row.score){ %>
+                                <td>
+                                    <%=row.score%>
+                                </td>
+                                <%}else{%>
+                                    <td>
+                                        <a href="/subjects/<%=row.SubjectId%>/<%=row.id%>/givescore">Give Score</a>
+                                    </td>
+                </tr>
+                <%}})%>
+        </table>
+    </div>
+
+</body>
+
+</html>

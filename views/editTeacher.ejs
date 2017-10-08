@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <title>Edit Teacher</title>
+</head>
+
+<body>
+    <div id="form-input">
+        <form action="/teachers/edit/<%=dataTeacher.id %>" method="post">
+            <br> First Name :
+            <br>
+            <input type="text" name="first_name" value="<%=dataTeacher.first_name %>"> <br> Last Name :
+            <br>
+            <input type="text" name="last_name" value="<%=dataTeacher.last_name %>"><br> Email :
+            <br>
+            <input type="text" name="email" value="<%=dataTeacher.email%>"><br>
+            <br>
+            <select name="SubjectId"> 
+                    <%dataSubject.forEach((subject)=>{ 
+                        if(dataTeacher.SubjectId == subject.id){
+                        %>
+                        <option value="<%=subject.id%>" selected><%=subject.subject_name%></option>
+                        <%}else {%>
+                <option value="<%=subject.id%>"><%=subject.subject_name%></option>
+                <%}})%>
+            </select>
+            <input type="submit" value="Save">
+        </form>
+
+    </div>
+
+</body>
+
+</html>
