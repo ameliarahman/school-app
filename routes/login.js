@@ -23,15 +23,16 @@ router.post('/', function (req, res) {
         if (result.password == newPassword) {
             req.session.login = true;
             req.session.role = result.role;
-            res.render('index', { session: req.session.role, pageTitle: 'Welcome' })
+            res.redirect('/')
         } else {
             res.render('login', { message: 'Username / password is incorrect', pageTitle: 'Login' })
         }
+    }).catch((reason) => {
+        res.render('login', { message: 'Username / password is incorrect', pageTitle: 'Login' })
     })
-
 })
 router.get('/logout', function (req, res, next) {
-    // delete req.session.authenticated;
+    req.session.destroy()
     res.redirect('/');
 });
 

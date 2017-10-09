@@ -1,28 +1,24 @@
 <html>
+<% include ../partials/head %>
 
-<head>
-    <title>
-        <%=pageTitle%>
-    </title>
-</head>
+    <body>
+        <% include ../partials/menu%>
+            <h2>Edit Student</h2>
+            <div id="form-input">
+                <form action="/students/edit/<%=dataRowStudent.id %>" method="post">
+                    <br> First Name :
+                    <br>
+                    <input type="text" name="first_name" value="<%=dataRowStudent.first_name %>"> <br> Last Name :
+                    <br>
+                    <input type="text" name="last_name" value="<%=dataRowStudent.last_name %>"><br> Email :
+                    <br>
+                    <input type="text" name="email" value="<%=dataRowStudent.email%>"><br>
+                    <br>
+                    <input type="submit" value="Save">
+                </form>
 
-<body>
-    <h2>Edit Student</h2>
-    <div id="form-input">
-        <form action="/students/edit/<%=dataRowStudent.id %>" method="post">
-            <br> First Name :
-            <br>
-            <input type="text" name="first_name" value="<%=dataRowStudent.first_name %>"> <br> Last Name :
-            <br>
-            <input type="text" name="last_name" value="<%=dataRowStudent.last_name %>"><br> Email :
-            <br>
-            <input type="text" name="email" value="<%=dataRowStudent.email%>"><br>
-            <br>
-            <input type="submit" value="Save">
-        </form>
+            </div>
 
-    </div>
-
-</body>
+    </body>
 
 </html>

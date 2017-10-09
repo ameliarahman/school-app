@@ -1,12 +1,9 @@
 <html>
 
-<head>
-    <title>
-        <%=pageTitle%>
-    </title>
-</head>
-
-<body>
+        <% include ../partials/head %>
+        
+            <body>
+                <% include ../partials/menu%>
     <h2>Add Subject</h2>
     <div id="form-input">
 
@@ -17,12 +14,8 @@
             <input type="text" name="subject_name"> <br>
             <br>
 
-            <input type="submit" value="Save">
+            <input id="btn" type="submit" value="Save">
         </form>
-
-    </div>
-    <a href="/subjects">Subject</a>
-
 </body>
 
 </html>

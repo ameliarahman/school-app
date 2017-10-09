@@ -19,17 +19,31 @@ router.get('/', function (req, res) {
 })
 router.get('/edit/:id', function (req, res) {
     Model.User.findById(req.params.id).then((result) => {
-        res.render('editUser', { dataUser: result, pageTitle: 'Edit Data User' })
+        res.render('editUser', { dataUser: result, pageTitle: 'Edit Data User', session: req.session.role })
     })
-
 })
 router.post('/edit/:id', function (req, res) {
-
-
+    let password = req.body.password
+    let secret = getSecret(8);
+    let newPassword = crypto.createHmac('sha256', secret)
+        .update(password)
+        .digest('hex');
+    Model.User.update({
+        username: req.body.username,
+        password: newPassword,
+        role: req.body.role,
+        salt: secret
+    }, {
+            where: {
+                id: req.params.id
+            }
+        }).then((result) => {
+            res.redirect('../../users')
+        })
 })
 
 router.get('/add', function (req, res) {
-    res.render('addUser')
+    res.render('addUser', { session: req.session.role, pageTitle: 'Add Data User' })
 
 })
 router.post('/add', function (req, res) {

@@ -1,35 +1,33 @@
 <html>
 
-<head>
-    <title>
-     
-    </title>
-</head>
+<% include ../partials/head %>
 
-<body>
-    <h2>Add User</h2>
-    <div id="form-input">
+    <body>
+        <% include ../partials/menu%>
+            <h2>Add User</h2>
+            <div id="form-input">
 
-        <form action="/users/add" method="post">
+                <form action="/users/add" method="post">
 
-            <br> Username :
-            <br>
-            <input type="text" name="username"> <br> Password
-            <br>
-            <input type="text" name="password"><br>
-            <br>
-            <select name="role"> 
+                    <br> Username :
+                    <br>
+                    <input type="text" name="username"> <br> Password
+                    <br>
+                    <input type="text" name="password"><br>
+                    <br>
+                    <select name="role"> 
                 <option value='teacher'>Teacher</option>
                 <option value='headmaster'>Headmaster</option>
                 <option value='academic'>Academic</option>
-            </select>
+            </select> <br>
+            <br>
 
-            <input type="submit" value="Save">
-        </form>
+                    <input type="submit" value="Save">
+                </form>
 
-    </div>
-    <!-- <a href="/teachers">Teacher</a> -->
+            </div>
+            <!-- <a href="/teachers">Teacher</a> -->
 
-</body>
+    </body>
 
 </html>

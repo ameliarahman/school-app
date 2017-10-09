@@ -23,7 +23,7 @@ router.get('/', function (req, res) {
 })
 router.get('/add', function (req, res) {
   Model.Subject.findAll().then((result) => {
-    res.render('addTeacher', { dataSubject: result, pageTitle: 'Add Data Teacher' })
+    res.render('addTeacher', { dataSubject: result, pageTitle: 'Add Data Teacher', session: req.session.role })
   })
 
 })
@@ -37,7 +37,7 @@ router.get('/edit/:id', function (req, res) {
     Model.Teacher.findById(req.params.id),
     Model.Subject.findAll()
   ]).then((result) => {
-    res.render('editTeacher', { dataTeacher: result[0], dataSubject: result[1], pageTitle: 'Edit Data Teacher' })
+    res.render('editTeacher', { dataTeacher: result[0], dataSubject: result[1], pageTitle: 'Edit Data Teacher', session: req.session.role })
   })
 })
 router.post('/edit/:id', function (req, res) {

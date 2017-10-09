@@ -12,7 +12,24 @@
                     <br>
                     <input type="text" name="username" value="<%=dataUser.username %>"> <br> Password :
                     <br>
-                    <input type="text" name="password" value="<%=dataUser.password%>">
+                    <input type="password" name="password" value="<%=dataUser.password%>"> <br>
+                    <br>
+                    <select name="role">
+                        <%if(dataUser.role == 'teacher') {%>
+                            <option value='teacher' selected>Teacher</option>
+                            <option value='headmaster' >Headmaster</option>
+                            <option value='academic' >Academic</option>
+                        <%} else if(dataUser.role == 'headmaster') {%>
+                            <option value='teacher'>Teacher</option>
+                            <option value='headmaster' selected>Headmaster</option>
+                            <option value='academic'>Academic</option>
+                            <%} else if(dataUser.role == 'academic') {%>
+                                <option value='teacher'>Teacher</option>
+                                <option value='headmaster'>Headmaster</option>
+                                <option value='academic' selected>Academic</option>
+                                <%}%>%>
+                            
+                    </select> <br>
                     <br>
                     <input type="submit" value="Save">
                 </form>

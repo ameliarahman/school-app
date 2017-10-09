@@ -10,7 +10,26 @@ body{
 header{
     padding-top: 10px;
 }
-
+#login{
+text-align: center;
+}
+button {
+    background-color: grey;
+    color: white;
+    width: 20%;
+    height: 30px;
+}
+input{
+    width: 20%;
+    padding: 8px 10px;
+    margin: 6px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+button:hover {
+    opacity: 0.8;
+}
 li{
     margin-left: 20px;
 }

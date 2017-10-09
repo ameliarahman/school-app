@@ -1,34 +1,27 @@
 <html>
 
-<head>
-    <title>
-        <%=pageTitle%>
-    </title>
-</head>
+<% include ../partials/head %>
 
-<body>
-    <h2>Add Student Subject</h2>
-    <div id="form-input">
-        <form action="/students/<%=dataStudent.id %>/addsubject" method="post">
-            <br> First Name :
-            <br>
-            <input type="text" name="first_name" value="<%=dataStudent.first_name %>"> <br> Last Name :
-            <br>
-            <input type="text" name="last_name" value="<%=dataStudent.last_name %>"><br> Email :
-            <br>
-            <input type="text" name="email" value="<%=dataStudent.email%>"><br>
-            <br>
-            <select name="SubjectId"> 
+    <body>
+        <% include ../partials/menu%>
+            <h2>Add Student Subject</h2>
+            <div id="form-input">
+                <form action="/students/<%=dataStudent.id %>/addsubject" method="post">
+                    <br> First Name :
+                    <br>
+                    <input type="text" name="first_name" value="<%=dataStudent.first_name %>"> <br> Last Name :
+                    <br>
+                    <input type="text" name="last_name" value="<%=dataStudent.last_name %>"><br> Email :
+                    <br>
+                    <input type="text" name="email" value="<%=dataStudent.email%>"><br>
+                    <br>
+                    <select name="SubjectId"> 
                     <%dataSubject.forEach((subject)=>{ %>
                 <option value="<%=subject.id%>"><%=subject.subject_name%></option>
                 <%})%>
             </select>
-            <input type="submit" value="Save">
-        </form>
-
-    </div>
-    <a href="/students">Student</a>
-
-</body>
+                    <input type="submit" value="Save">
+                </form>
+    </body>
 
 </html>

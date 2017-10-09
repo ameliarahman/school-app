@@ -4,9 +4,9 @@ const Model = require('../models')
 
 
 
-function validasiEmail(req, res, errMessage) {
-    res.render('addStudent', { alert: errMessage })
-}
+// function validasiEmail(req, res, errMessage) {
+//     res.render('addStudent', { alert: errMessage, pageTitle: "Add Data Student", session: req.session.role })
+// }
 
 router.use('/', function (req, res, next) {
     if (req.session.role == 'teacher' || req.session.role == 'academic' || req.session.role == 'headmaster') {
@@ -22,7 +22,7 @@ router.get('/', function (req, res) {
             ['first_name', 'ASC']
         ]
     }).then((result) => {
-        res.render('student', { dataRowStudent: result, pageTitle: "Student", session: req.session.role })
+        res.render('student', { dataRowStudent: result, pageTitle: "Student", session: req.session.role, errMessage: '' })
     })
 
 })
@@ -46,11 +46,13 @@ router.post('/:id/addsubject', function (req, res) {
 
 router.get('/add', function (req, res) {
     // validasiEmail(req, res, '')
-    res.render('addStudent', { pageTitle: "Add Data Student", session: req.session.role })
+    res.render('addStudent', { pageTitle: "Add Data Student", session: req.session.role, errMessage: '' })
 })
 router.post('/add', function (req, res) {
     Model.Student.create(req.body).then((result) => {
         res.redirect('../students')
+    }).catch((reason) => {
+        res.render('addStudent', { pageTitle: "Add Data Student", errMessage: 'Email format is incorrect', session: req.session.role })
     })
 })
 router.get('/edit/:id', function (req, res) {

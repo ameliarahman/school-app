@@ -1,57 +1,54 @@
 <html>
+<% include ../partials/head %>
 
-<head>
-    <title>
-        <%=pageTitle%>
-    </title>
-</head>
+    <body>
+        <% include ../partials/menu%>
 
-<body>
-    <div id="main-table">
-        <h2>
-            Students Data
-        </h2>
-        <table border="1" cellpadding="0" cellspacing="0" width = "65%">
-            <tr>
-                <th>No</th>
-                <th>ID</th>
-                <th>Students Name</th>
-                <th>Score</th>
-                <th>Desc</th>
-            </tr>
-            <% dataStudentSubject.forEach(function(row, index){%>
-                <tr>
-                   <td> 
-                        <%=index+1%>
-                            </td>
-                            <td>
-                                <%=row.id %>
-                            </td>
-                            <td>
-                                <%=row.Student.getFullName()%>
-                            </td>
-                            <%if(row.score){ %>
+            <body>
+                <div id="main-table">
+                    <h2>
+                        Students Data
+                    </h2>
+                    <table border="1" cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th>No</th>
+                            <th>ID</th>
+                            <th>Students Name</th>
+                            <th>Score</th>
+                            <th>Desc</th>
+                        </tr>
+                        <% dataStudentSubject.forEach(function(row, index){%>
+                            <tr>
                                 <td>
-                                    <%=row.score%>
+                                    <%=index+1%>
                                 </td>
                                 <td>
-                                    <%=row.getScoreLetter()%>
+                                    <%=row.id %>
                                 </td>
-                                <%}else{%>
+                                <td>
+                                    <%=row.Student.getFullName()%>
+                                </td>
+                                <%if(row.score){ %>
                                     <td>
-                                        <a href="/subjects/<%=row.SubjectId%>/<%=row.id%>/givescore">Give Score</a>
+                                        <%=row.score%>
                                     </td>
                                     <td>
-                                        Empty
+                                        <%=row.getScoreLetter()%>
                                     </td>
-                </tr>
-                <%}})%>
+                                    <%}else{%>
+                                        <td>
+                                            <a href="/subjects/<%=row.SubjectId%>/<%=row.id%>/givescore">Give Score</a>
+                                        </td>
+                                        <td>
+                                            Empty
+                                        </td>
+                            </tr>
+                            <%}})%>
 
-        </table>
-        <br>
-        <a href="/subjects">Subject</a>
-    </div>
+                    </table>
+                    <br>
+                </div>
 
-</body>
+            </body>
 
 </html>

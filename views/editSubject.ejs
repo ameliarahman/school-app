@@ -1,24 +1,20 @@
 <html>
+<% include ../partials/head %>
 
-<head>
-    <title>
-        <%=pageTitle%>
-    </title>
-</head>
+    <body>
+        <% include ../partials/menu%>
+            <h2>Edit Subject</h2>
+            <div id="form-input">
+                <form action="/subjects/edit/<%=dataSubject.id %>" method="post">
+                    <br> Subject Name :
+                    <br>
+                    <input type="text" name="subject_name" value="<%=dataSubject.subject_name %>">
+                    <br>
+                    <input type="submit" value="Save">
+                </form>
 
-<body>
-    <h2>Edit Subject</h2>
-        <div id="form-input">
-            <form action="/subjects/edit/<%=dataSubject.id %>" method="post">
-                <br> Subject Name :
-                <br>
-                <input type="text" name="subject_name" value="<%=dataSubject.subject_name %>">
-                <br>
-                <input type="submit" value="Save">
-            </form>
+            </div>
 
-        </div>
-
-</body>
+    </body>
 
 </html>

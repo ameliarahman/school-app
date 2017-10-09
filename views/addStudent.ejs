@@ -1,29 +1,23 @@
-<html>
+<htm>
+    <% include ../partials/head %>
 
-<head>
-    <title>
-        <%=pageTitle%>
-    </title>
-</head>
+        <body>
+            <% include ../partials/menu%>
+                <h2>Add Data Student</h2>
+                <div id="form-input">
+                    <%= errMessage%>
+                        <form action="/students/add" method="post">
 
-<body>
-<h2>Add Data Student</h2>
-        <div id="form-input">
-            <form action="/students/add" method="post">
+                            <br> First Name :
+                            <br>
+                            <input type="text" name="first_name"> <br> Last Name :
+                            <br>
+                            <input type="text" name="last_name"><br> Email :
+                            <br>
+                            <input type="text" name="email"><br>
+                            <br>
+                            <input type="submit" value="Save">
+                        </form>
+        </body>
 
-                <br> First Name :
-                <br>
-                <input type="text" name="first_name"> <br> Last Name :
-                <br>
-                <input type="text" name="last_name"><br> Email :
-                <br>
-                <input type="text" name="email"><br>
-                <br>
-                <input type="submit" value="Save">
-            </form>
-
-        </div>
-        <a href="/students">Student</a>
-    </body>
-
-</html>
+        </html>
