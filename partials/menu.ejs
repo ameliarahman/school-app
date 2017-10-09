@@ -1,21 +1,56 @@
 <ul class="dropmenu">
-    <li><a href="/">Home</a>
-    </li>
-    <li><a href="subjects">Subject</a>
-        <ul>
-            <li><a href="subjects/add">Add Subject</a></li>
-        </ul>
-    </li>
-    <li><a href="teachers">Teacher</a>
-        <ul>
-            <li><a href="teachers/add">Add Teacher</a></li>
+    <%if(session == 'headmaster') {%>
+        <li><a href="/">Home</a></li>
 
-        </ul>
-    </li>
-    <li><a href="students">Student</a>
-        <ul>
-            <li><a href="students/add">Add Student</a></li>
+        <li><a href="/subjects">Subject</a>
+            <ul>
+                <li><a href="/subjects/add">Add Subject</a></li>
+            </ul>
+        </li>
+        <li><a href="/teachers">Teacher</a>
+            <ul>
+                <li><a href="/teachers/add">Add Teacher</a></li>
 
-        </ul>
-    </li>
+            </ul>
+        </li>
+        <li><a href="/students">Student</a>
+            <ul>
+                <li><a href="/students/add">Add Student</a></li>
+
+            </ul>
+        </li>
+        <li><a href="/users">User</a>
+            <ul>
+                <li><a href="/users/add">Add User</a></li>
+
+            </ul>
+        </li>
+        <%} else if(session == 'teacher'){%>
+            <li><a href="/">Home</a></li>
+            <li><a href="/students">Student</a>
+                <ul>
+                    <li><a href="/students/add">Add Student</a></li>
+
+                </ul>
+            </li>
+            <%} else if(session == 'academic') {%>
+                <li><a href="/">Home</a></li>
+
+                <li><a href="/subjects">Subject</a>
+                    <ul>
+                        <li><a href="/subjects/add">Add Subject</a></li>
+                    </ul>
+                </li>
+                <li><a href="/students">Student</a>
+                    <ul>
+                        <li><a href="/students/add">Add Student</a></li>
+
+                    </ul>
+                </li>
+                <%}%>
+
+                    </li>
+                    <li><a href="/login">Log Out</a> </li>
+
+
 </ul>

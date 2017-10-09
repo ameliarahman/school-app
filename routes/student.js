@@ -3,9 +3,18 @@ const router = express.Router();
 const Model = require('../models')
 
 
+
 function validasiEmail(req, res, errMessage) {
     res.render('addStudent', { alert: errMessage })
 }
+
+router.use('/', function (req, res, next) {
+    if (req.session.role == 'teacher' || req.session.role == 'academic' || req.session.role == 'headmaster') {
+        next()
+    } else {
+        res.redirect('login')
+    }
+})
 
 router.get('/', function (req, res) {
     Model.Student.findAll({
@@ -13,7 +22,7 @@ router.get('/', function (req, res) {
             ['first_name', 'ASC']
         ]
     }).then((result) => {
-        res.render('student', { dataRowStudent: result, pageTitle: "Student" })
+        res.render('student', { dataRowStudent: result, pageTitle: "Student", session: req.session.role })
     })
 
 })
@@ -23,7 +32,7 @@ router.get('/:id/addsubject', function (req, res) {
         Model.Student.findById(req.params.id),
         Model.Subject.findAll()
     ]).then((result) => {
-        res.render('addStudentSubject', { dataStudent: result[0], dataSubject: result[1], pageTitle: "Add Data Subject" })
+        res.render('addStudentSubject', { dataStudent: result[0], dataSubject: result[1], pageTitle: "Add Data Subject", session: req.session.role })
     })
 })
 router.post('/:id/addsubject', function (req, res) {
@@ -37,7 +46,7 @@ router.post('/:id/addsubject', function (req, res) {
 
 router.get('/add', function (req, res) {
     // validasiEmail(req, res, '')
-    res.render('addStudent', { pageTitle: "Add Data Student" })
+    res.render('addStudent', { pageTitle: "Add Data Student", session: req.session.role })
 })
 router.post('/add', function (req, res) {
     Model.Student.create(req.body).then((result) => {
@@ -46,7 +55,7 @@ router.post('/add', function (req, res) {
 })
 router.get('/edit/:id', function (req, res) {
     Model.Student.findById(req.params.id).then((result) => {
-        res.render('editStudent', { dataRowStudent: result, pageTitle: "Edit Data Student" })
+        res.render('editStudent', { dataRowStudent: result, pageTitle: "Edit Data Student", session: req.session.role })
     })
 })
 router.post('/edit/:id', function (req, res) {

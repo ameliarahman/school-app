@@ -3,9 +3,16 @@ const router = express.Router();
 const Model = require('../models')
 
 
+router.use('/', function (req, res, next) {
+  if (req.session.role == 'academic' || req.session.role == 'headmaster') {
+    next()
+  } else {
+    res.redirect('../login')
+  }
+})
 router.get('/', function (req, res) {
   Model.Subject.findAll({ include: [Model.Teacher] }).then((result) => {
-    res.render('subject', { dataSubject: result, pageTitle: 'Data Subject' })
+    res.render('subject', { dataSubject: result, pageTitle: 'Data Subject', session : req.session.role })
   })
 })
 router.get('/add', function (req, res) {

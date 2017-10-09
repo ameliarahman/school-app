@@ -2,6 +2,15 @@ const express = require('express');
 const router = express.Router();
 const Model = require('../models')
 
+router.use('/', function (req, res, next) {
+  if (req.session.role != 'headmaster') {
+    res.redirect('/login')
+    return
+  } else {
+    next()
+  }
+})
+
 router.get('/', function (req, res) {
   Model.Teacher.findAll({
     include: [Model.Subject],
@@ -9,7 +18,7 @@ router.get('/', function (req, res) {
       ['first_name', 'ASC']
     ]
   }).then((result) => {
-    res.render('teacher', { dataTeacher: result, pageTitle: 'Data Teacher' })
+    res.render('teacher', { dataTeacher: result, pageTitle: 'Data Teacher', session: req.session.role })
   })
 })
 router.get('/add', function (req, res) {

@@ -1,0 +1,25 @@
+<html>
+<% include ../partials/head %>
+
+    <body>
+        <% include ../partials/menu%>
+
+            <h2>Edit User</h2>
+
+            <div id="form-input">
+                <form action="/users/edit/<%=dataUser.id %>" method="post">
+                    <br> Usename :
+                    <br>
+                    <input type="text" name="username" value="<%=dataUser.username %>"> <br> Password :
+                    <br>
+                    <input type="text" name="password" value="<%=dataUser.password%>">
+                    <br>
+                    <input type="submit" value="Save">
+                </form>
+
+            </div>
+
+
+    </body>
+
+</html>
